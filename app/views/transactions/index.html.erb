@@ -29,7 +29,7 @@
           <th></th>
           <th></th>
           <th>Total:</th>
-          <th>$<%= @transactions.pluck(:order_total).reduce(:+) %></th>
+          <th>$<%= @transactions.pluck(:order_total).reduce(:+) if user_signed_in? %></th>
         </tr>
       </tfoot>
     </table>
