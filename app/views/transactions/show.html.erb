@@ -23,12 +23,14 @@
         <tr>
           <th>Cryptocurrency</th>
           <th class="text-right">Quantity in Coins</th>
+          <th class="text-right"><%= @transaction.type_of_crypto.humanize %> Purchase Price</th>
           <th class="text-right">Price</th>
         </tr>
         <tr>
           <th><%= @transaction.type_of_crypto.humanize %></th>
-          <th class="text-right"><%= @transaction.amount_of_coin%></th>
-          <th class="text-right"><%= @transaction.amount_of_coin %> * <%= @transaction.crypto_price %> = <%= @transaction.order_total.round(2) %></th>
+          <th class="text-center"><%= @transaction.amount_of_coin %></th>
+          <th class="text-center"><%= @transaction.crypto_price %></th>
+          <th class="text-right"><%= @transaction.order_total.round(2) %></th>
         </tr>
       </table>
 
