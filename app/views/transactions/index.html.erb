@@ -1,9 +1,37 @@
-<% if user_signed_in? %>
-  <% @transactions.each do |transaction| %>
-    <p>it works | </p>
-  <% end %>
-<% else %>
-  <span>To see your transactions, you must <a href="/users/sign_in">sign in</a>!</span>
-  <span>If you don't have an account you can <a href="/users/sign_in">register here</a>!</span>
-<% end %>
-
+<section class="container transaction-history col-md-6 col-md-offset-3">
+  <div class="row">
+    <h1>Transation History</h1>
+    <% unless user_signed_in? %>
+      <span>To see your transactions, you must <a href="/users/sign_in">sign in</a>!</span>
+      <span>If you don't have an account you can <a href="/users/sign_in">register here</a>!</span>
+    <% end %>
+      <table class="table table-striped transaction-history-table border">
+        <thead class="thead-dark">
+          <tr>
+            <th>Cryptocurrency</th>
+            <th class="text-right">Quantity in Coins</th>
+            <th class="text-right">Purchase Price</th>
+            <th class="text-right">Price</th>
+          </tr>
+        </thead>
+      <% if user_signed_in? %>
+        <% @transactions.each do |transaction| %>
+              <tr>
+                <th><%= transaction.type_of_crypto.humanize %></th>
+                <th class="text-center"><%= transaction.type_of_crypto.humanize.eql?('Bitcoin') ? '₿' : 'Ξ' %><%= transaction.amount_of_coin %></th>
+                <th class="text-center">$<%= '%.2f' % transaction.crypto_price %></th>
+                <th class="text-right">$<%= '%.2f' % transaction.order_total.round(2) %></th>
+              </tr>
+        <% end %>
+      <% end %>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Total:</th>
+          <th>$<%= @transactions.pluck(:order_total).reduce(:+) %></th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
