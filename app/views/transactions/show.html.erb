@@ -1,0 +1,45 @@
+<section class="col-md-6 col-md-offset-3 order-table">
+
+  <% if current_user && current_user.email.eql?(@transaction.user_email) %>
+    <p>Hello <%= current_user.full_name %></p>
+  <% else %>
+    <p>Hello Guest</p>
+  <% end %>  
+
+  <h2>Transaction Details:</h2>
+  <div class="row">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        <h3 class="text-center">Your Wallet</h3>
+      </div>
+
+      <div class="panel-body">
+        <p class="text-center thank-you">Thank you for choosing Kwantum Coins!</p>
+        <p class="text-center">Here is your order!</p>
+      </div>
+
+      <table class="table table-striped cart-items">
+        <tr>
+          <th>Cryptocurrency</th>
+          <th class="text-right">Quantity in Coins</th>
+          <th class="text-right">Price</th>
+        </tr>
+        <tr>
+          <th><%= @transaction.type_of_crypto.humanize %></th>
+          <th class="text-right"><%= @transaction.amount_of_coin%></th>
+          <th class="text-right">Some Price</th>
+        </tr>
+      </table>
+
+      <table class="table price">
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td><% @transaction.order_total %></td>
+        <tr>
+      </table>
+    </div>
+  </div>
+</section>
