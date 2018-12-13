@@ -52,7 +52,7 @@ document.addEventListener("turbolinks:load", function () {
       }
     });
 
-    cashAmount.unbind('focusout').bind('focusout', function () {
+    cashAmount.unbind('keyup').bind('keyup', function () {
       var cryptocurrency = selectValue.innerHTML;
       var cash = parseFloat(cashAmount.val());
       if (cryptocurrency === "Bitcoin") {
@@ -67,7 +67,7 @@ document.addEventListener("turbolinks:load", function () {
       hiddenTotal.val(cashAmount.val());
     });
     
-    coinAmount.unbind('focusout').bind('focusout', function () {
+    coinAmount.unbind('keyup').bind('keyup', function () {
       var cryptocurrency = selectValue.innerHTML;
       var amountOfCrypto = parseFloat(coinAmount.val());
       var amountOfCash;
