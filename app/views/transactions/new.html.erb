@@ -1,31 +1,41 @@
-<h1>Transactions#new</h1>
-<p>Find me in app/views/transactions/new.html.erb</p>
+<section id="new-transaction">
+  <h1>Buy Some Cryptocurrency</h1>
+  <h2>We currently offer the purchasing of Bitcoin and Ethereum</h2>
 
-<h1>Make a Transaction</h1>
-<form action="/purchase" method="post">
-  <% if user_signed_in? %>
-    <select name="purchase_type">
-      <option>CAD</option>
-      <option>Number of Coin(s)</option>
-    </select>
-    <label>Enter the desired amount:</label>
-    <input type="text" name="amount_of_coin"/>
-    <input type="hidden" name="order_total">
-    <div><input type="submit" name="commit" value="Buy Crypto!"/></div>
-  <% else %>
-    <label>Enter your first name:</label>
-    <input type="text" name="guest_first_name"/>
-    <label>Enter your last name:</label>
-    <input type="text" name="guest_last_name"/>
-    <label>Enter your email address:</label>
-    <input type="text" name="guest_email"/>
-    <select name="purchase_type">
-      <option>CAD</option>
-      <option>Number of Coin(s)</option>
-    </select>
-    <label>Enter the desired amount:</label>
-    <input type="text" name="amount_of_coin"/>
-    <input type="hidden" name="order_total">
-    <div><input type="submit" name="commit" value="Buy Crypto!"/></div>
-  <% end %>
-</form>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle select-value" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select Cryptocurrency
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <button class="dropdown-item bitcoin-select" type="button">Bitcoin</button>
+      <button class="dropdown-item ethereum-select" type="button">Ethereum</button>
+    </div>
+  </div>
+
+  <div class="purchase-type-toggle">
+    <input id='input-toggle' type="checkbox" checked data-toggle="toggle" data-on="CAD" data-off="Cryptocurrency" data-onstyle="primary" data-offstyle="secondary" data-style="slow">
+  </div>
+
+  <form action="/purchase" class="new-transaction-form" method="post">
+    <div class="hide-form hidden">
+      <% unless user_signed_in? %>
+        <label>Enter your first name:</label>
+        <input type="text" name="guest_first_name"/>
+        <label>Enter your last name:</label>
+        <input type="text" name="guest_last_name"/>
+        <label>Enter your email address:</label>
+        <input type="text" name="guest_email"/>
+      <% end %>
+      <span class="btc-value hidden">Bitcoin Current Price Per Unit: $<span class="btc-price"><%= @crypto_api_service.bitcoin_price %></span>.</span>
+      <span class="eth-value hidden">Ethereum Current Price Per Unit: $<span class="eth-price"><%= @crypto_api_service.ethereum_price %></span>.</span>
+      <label class="amount-label">Enter the desired amount of coin(s) in CAD:</label>
+      <input class="cash-amount" type="number" step="0.01"/>
+      <input class="coin-amount hidden" type="number" name="amount-of-coin" step="0.00001" min="0.00016" max="10000"/>
+      <input class="order-total-hidden" type="hidden" name="order-total">
+      <input class="purchase-type" type="hidden" name="purchase-type" value="cad">
+      <input class="type-of-crypto" type="hidden" name="type-of-crypto">
+      <span class="purchase-total">$<span class="order-total">0.00</span></span>
+      <input type="submit" name="commit" value="Checkout"/>
+    </div>
+  </form>
+</section>

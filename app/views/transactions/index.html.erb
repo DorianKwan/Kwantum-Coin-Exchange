@@ -1,2 +1,9 @@
-<h1>Transactions#index</h1>
-<p>Find me in app/views/transactions/index.html.erb</p>
+<% if user_signed_in? %>
+  <% @transactions.each do |transaction| %>
+    <p>it works | </p>
+  <% end %>
+<% else %>
+  <span>To see your transactions, you must <a href="/users/sign_in">sign in</a>!</span>
+  <span>If you don't have an account you can <a href="/users/sign_in">register here</a>!</span>
+<% end %>
+
