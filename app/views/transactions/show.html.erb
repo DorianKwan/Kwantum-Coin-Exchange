@@ -11,7 +11,7 @@
     <div class="panel panel-default">
 
       <div class="panel-heading">
-        <h3 class="text-center">Your Wallet</h3>
+        <h3 class="text-center"><%= @transaction.type_of_crypto.humanize %> has been added to your wallet.</h3>
       </div>
 
       <div class="panel-body">
@@ -28,7 +28,7 @@
         <tr>
           <th><%= @transaction.type_of_crypto.humanize %></th>
           <th class="text-right"><%= @transaction.amount_of_coin%></th>
-          <th class="text-right">Some Price</th>
+          <th class="text-right"><%= @transaction.amount_of_coin %> * <%= @transaction.crypto_price %> = <%= @transaction.order_total.round(2) %></th>
         </tr>
       </table>
 
