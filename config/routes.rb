@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get  'transactions/index'
   get  'transactions/new'
   get  'transactions/show'
-  post 'transactions/create'
+  post '/purchase' => 'transactions#create'
 end
