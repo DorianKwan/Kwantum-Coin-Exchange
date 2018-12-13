@@ -12,4 +12,8 @@ class Transaction < ApplicationRecord
       self.user.email
     end
   end
+
+  def crypto_price
+    (self.order_total / self.amount_of_coin).round(2)
+  end
 end
