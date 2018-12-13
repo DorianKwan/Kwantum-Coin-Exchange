@@ -2,7 +2,7 @@
 <p>Find me in app/views/transactions/new.html.erb</p>
 
 <h1>Make a Transaction</h1>
-<form action="/order" method="post">
+<form action="/purchase" method="post">
   <% if user_signed_in? %>
     <select name="purchase_type">
       <option>CAD</option>
@@ -14,11 +14,11 @@
     <div><input type="submit" name="commit" value="Buy Crypto!"/></div>
   <% else %>
     <label>Enter your first name:</label>
-    <input type="text" name="first_name"/>
+    <input type="text" name="guest_first_name"/>
     <label>Enter your last name:</label>
-    <input type="text" name="last_name"/>
+    <input type="text" name="guest_last_name"/>
     <label>Enter your email address:</label>
-    <input type="text" name="email_address"/>
+    <input type="text" name="guest_email"/>
     <select name="purchase_type">
       <option>CAD</option>
       <option>Number of Coin(s)</option>
