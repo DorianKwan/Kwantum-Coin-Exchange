@@ -1,4 +1,4 @@
-<section class="container transaction-history col-md-6 col-md-offset-3">
+<section class="container transaction-history col-md-9 col-md-offset-3">
   <div class="row">
     <h1>Transation History</h1>
     <% unless user_signed_in? %>
@@ -29,7 +29,7 @@
           <th></th>
           <th></th>
           <th>Total:</th>
-          <th>$<%= @transactions.pluck(:order_total).reduce(:+) %></th>
+          <th>$<%= @transactions.pluck(:order_total).reduce(:+) if user_signed_in? %></th>
         </tr>
       </tfoot>
     </table>
