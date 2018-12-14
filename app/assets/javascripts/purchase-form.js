@@ -17,8 +17,9 @@ document.addEventListener("turbolinks:load", function () {
     var ptToggleDiv  = $('.purchase-type-toggle');
     var purchaseType = $('.purchase-type');
     var typeOfCrypto = $('.type-of-crypto');
+    var visibleCoin  = document.getElementsByClassName('crypto-amount-visible')[0];
     var amountlabel  = document.getElementsByClassName('amount-label')[0];
-    var visibleTotal = document.getElementsByClassName('order-total')[0];
+    var cashTotal    = document.getElementsByClassName('order-total')[0];
     var selectValue  = document.getElementsByClassName('select-value')[0];
     var btcSelect    = document.getElementsByClassName('bitcoin-select')[0];
     var ethSelect    = document.getElementsByClassName('ethereum-select')[0];
@@ -52,35 +53,34 @@ document.addEventListener("turbolinks:load", function () {
       }
     });
 
+    // Handle amount of CAD input, updates hidden input values for form
     cashAmount.unbind('keyup').bind('keyup', function () {
-      var cryptocurrency = selectValue.innerHTML;
       var cash = parseFloat(cashAmount.val());
-      if (cryptocurrency === "Bitcoin") {
-        var amountOfBtc = Math.round((cash / parseFloat(btcPrice)) * 100000) / 100000;
-        coinAmount.val(amountOfBtc);
-        console.log(amountOfBtc);
-      } else {
-        var amountOfEth = Math.round((cash / parseFloat(btcPrice)) * 100000) / 100000;
-        coinAmount.val(amountOfEth);
+      var cryptocurrency = selectValue.innerHTML;
+      var cryptoPrice    = (cryptocurrency === "Bitcoin" ? btcPrice : ethPrice);
+      var cryptoSymbol   = (cryptocurrency === "Bitcoin" ? '₿' : 'Ξ');
+      var amountOfCrypto = Math.round((cash / parseFloat(cryptoPrice)) * 100000) / 100000;
+      if (amountOfCrypto) {
+        coinAmount.val(amountOfCrypto);
+        hiddenTotal.val(cashAmount.val());
+        visibleCoin.innerHTML = `${cryptoSymbol} ${amountOfCrypto}`;
+        cashTotal.innerHTML   = parseFloat(cashAmount.val()).toFixed(2);
       }
-      visibleTotal.innerHTML = parseFloat(cashAmount.val()).toFixed(2);
-      hiddenTotal.val(cashAmount.val());
     });
     
+    // Handle amount of coins input, updates hidden input values for form
     coinAmount.unbind('keyup').bind('keyup', function () {
       var cryptocurrency = selectValue.innerHTML;
       var amountOfCrypto = parseFloat(coinAmount.val());
-      var amountOfCash;
-      if (cryptocurrency === "Bitcoin") {
-        amountOfCash = Math.round((amountOfCrypto * parseFloat(btcPrice)) * 100) / 100;
+      var cryptoPrice  = (cryptocurrency === "Bitcoin" ? btcPrice : ethPrice);
+      var cryptoSymbol = (cryptocurrency === "Bitcoin" ? '₿' : 'Ξ');
+      var amountOfCash = Math.round((amountOfCrypto * parseFloat(cryptoPrice)) * 100) / 100;
+      if (amountOfCash) {
         cashAmount.val(amountOfCash);
-        visibleTotal.innerHTML = amountOfCash.toFixed(2);
+        coinAmount.val(amountOfCrypto);
         hiddenTotal.val(amountOfCash);
-      } else {
-        amountOfCash = Math.round((amountOfCrypto * parseFloat(ethPrice)) * 100) / 100;
-        cashAmount.val(amountOfCash);
-        visibleTotal.innerHTML = amountOfCash.toFixed(2);
-        hiddenTotal.val(cashAmount.val(amountOfCash));
+        visibleCoin.innerHTML = `${cryptoSymbol} ${amountOfCrypto}`;
+        cashTotal.innerHTML   = amountOfCash.toFixed(2);
       }
     });
   }
