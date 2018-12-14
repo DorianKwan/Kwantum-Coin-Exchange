@@ -1,0 +1,195 @@
+#homepage-section {
+  height: calc(100vh - 212px);
+
+  .fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+  }
+  
+  .fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (min-aspect-ratio: 16/9) {
+    .fullscreen-bg__video {
+      height: 300%;
+      top: -100%;
+    }
+  }
+  
+  @media (max-aspect-ratio: 16/9) {
+    .fullscreen-bg__video {
+      width: 300%;
+      left: -100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .fullscreen-bg {
+      background: url('assets/backup-poster.png') center center / cover no-repeat;
+    }
+  
+    .fullscreen-bg__video {
+      display: none;
+    }
+  }
+
+  h1 {
+    font-family: 'raleway', sans-serif;
+    font-size: 28px;
+    color: white;
+    margin-top: 20%;
+  }
+
+  .buy-coins-button {
+    z-index: 3;
+    margin-top: 25px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    width: 12%;
+    height: auto;
+    font-size: 20px;
+    border: 3px solid white;
+    background: none;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  .buy-coins-button:hover,
+  .buy-coins-button:focus {
+    a {
+      color: black;
+      transition: color 0.8s ease-in 0.5s;
+    }
+    background-color: white;
+    transition: background-color 0.8s ease-in 0.5s;
+  }
+
+  .video-overlay { 
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    height: calc(100vh - 212px);
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+  }
+}
+
+#crypto-data {
+  position: relative;
+  top: -80px;
+  background-color: white;
+  height: 250px;
+  -webkit-box-shadow: 0 8px 6px -6px white;
+  -moz-box-shadow: 0 8px 6px -6px white;
+  box-shadow: 0 8px 6px -6px white;
+
+  .crypto-container {
+    width: 80%;
+    padding-top: 35px;
+
+    .data-header { 
+      font-size: 18px;
+    }
+
+    div {
+      padding-top: 15px;
+    }
+  }
+}
+
+#about-crypto {
+  position: relative;
+  height: 660px;
+  background-color: #efefef;
+  top: -80px;
+  border-top: 1px solid #555;
+
+  .about-crypto-container {
+    background-color: white;
+    padding: 50px;
+    margin-top: 80px;
+    margin-bottom: 125px;
+    -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    p {
+      width: 100%;
+    }
+  }
+}
+
+#about-blockchain {
+  position: relative;
+  height: 740px;
+  background-color: white;
+  top: -80px;
+  border-top: 1px solid #555;
+
+  .about-blockchain-container {
+    background-color: #efefef;
+    padding: 50px;
+    margin-top: 80px;
+    margin-bottom: 125px;
+    -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
+    width: 80%;
+
+    .blockchain-img {
+      max-width: 500px;
+      height: 215px;
+      margin-top: -40px;
+      margin-right: 25px;
+    }
+    
+    h3 {
+      font-size: 32px;
+    }
+
+    p {
+      width: 100%;
+    }
+  }
+}
+
+#about-use {
+  position: relative;
+  height: 920px;
+  background-color: #efefef;
+  top: -80px;
+  border-top: 1px solid #555;
+
+  .about-use-container {
+    background-color: white;
+    padding: 50px;
+    margin-top: 80px;
+    margin-bottom: 125px;
+    -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    p {
+      width: 100%;
+    }
+
+    h4 {
+      font-size: 32px;
+    }
+  }
+}
