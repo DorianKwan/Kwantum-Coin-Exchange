@@ -36,6 +36,8 @@ class TransactionsController < ApplicationController
       redirect_to(new_user_registration_path)
     end
 
+    @buy_page = true
+
     @crypto_api_service = CryptocurrencyApiService.new()
   end
 
