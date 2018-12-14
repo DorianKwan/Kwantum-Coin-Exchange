@@ -1,0 +1,76 @@
+#new-transaction {
+  background-color: #efefef;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  min-height: calc(100vh - 200px);
+  width: 100%;
+
+  .form-box {
+    width: 50%;
+    background-color: white;
+    padding: 50px;
+    margin-bottom: 125px;
+    -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .transaction-title {
+    font-size: 32px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    padding-bottom: 5px;
+  }
+
+  .crypto-offered {
+    font-size: 20px;
+  }
+
+  .instruction-label {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .instruction-text {
+    font-size: 16px;
+    padding-bottom: 15px;
+  }
+
+  hr {
+    width: 100%;
+    font-size: 2.0em;
+    margin-top: 0;
+  }
+
+  .purchase-type-toggle {
+    margin-left: -10px;
+  }
+
+  .crypto-prices {
+    padding-top: 5px;
+  }
+
+  .new-transaction-form {
+    padding-top: 20px;
+
+    .cash-amount {
+      margin-left: -10px;
+    }
+    
+    .coin-amount {
+      margin-left: -10px;
+    }
+
+    .amount-label {
+      margin-top: 2.5px;
+    }
+
+    .total-row {
+      padding-top: 15px;
+    }
+
+    .checkout-button {
+      margin-right: 10px;
+    }
+  }
+
+}
