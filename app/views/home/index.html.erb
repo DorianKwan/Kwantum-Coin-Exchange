@@ -1,5 +1,156 @@
 <section id="homepage-section">
-  <h1>Home Index Page</h1>
-  <p>Find me in app/views/home/index.html.erb</p>
-  <a href="/transactions/new">Buy Coins</a>
+  <div class="fullscreen-bg">
+    <video loop muted autoplay poster="assets/backup-poster.png" class="fullscreen-bg__video">
+        <source src="assets/network.mp4" type="video/mp4">
+    </video>
+  </div>
+  
+  <div class="container-fluid video-overlay text-center">
+    <h1>Want to detach yourself from the banks? Gain real freedom with your money? Got Cryptocurrency?</h1>
+    <button class="buy-coins-button"><a href="/transactions/new">Buy Crypto</a></button>
+  </div>
+
+</section>
+
+<section id="crypto-data">
+  <%
+    btc_last, btc_high, btc_low = @crypto_api_service.get_crypto_price_data('btc')
+    eth_last, eth_high, eth_low = @crypto_api_service.get_crypto_price_data('eth')
+  %>
+  <div class="container-fluid crypto-container">
+    <div class="row">
+      <span class="col-5"></span>
+      <span class="col-2 data-header">Last Sold Price</span>
+      <span class="col-2 data-header">Daily High</span>
+      <span class="col-2 data-header">Daily Low</span>
+    </div>
+    <div class="row">
+      <span class="col-5"><b>Bitcoin 24 hour activity</b></span>
+      <span class="col-2">$<b><%= btc_last %></b> CAD</span>
+      <span class="col-2">$<b><%= btc_high %></b> CAD</span>
+      <span class="col-2">$<b><%= btc_low %></b> CAD</span>
+    </div>
+    <div class="row">
+      <span class="col-5"><b>Ethereum 24 hour activity</b></span>
+      <span class="col-2">$<b><%= eth_last %></b> CAD</span>
+      <span class="col-2">$<b><%= eth_high %></b> CAD</span>
+      <span class="col-2">$<b><%= eth_low %></b> CAD</span>
+    </div>
+  <div>
+</section>
+
+<section id="about-crypto">
+  <div class="container about-crypto-container">
+  <h2>What are Cryptocurrenies?  Why are they important?</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur condimentum 
+    eros sed tempus congue. Donec justo risus, sollicitudin sed augue sed, faucibus 
+    commodo tortor. Nulla a nulla odio. In vehicula, neque in faucibus imperdiet, 
+    enim libero suscipit arcu, in sagittis nibh leo eu turpis. Ut id laoreet arcu, 
+    eu porttitor dolor. Mauris vitae pretium leo. Fusce id tellus nibh. Mauris 
+    scelerisque tellus eget mi faucibus dapibus. Vivamus varius nibh sit amet felis 
+    lacinia lobortis.
+  </p>
+
+  <p>
+    Nam congue justo in ante condimentum vestibulum. Nulla facilisi. Pellentesque id 
+    eros dignissim, consequat ante eget, pulvinar dolor. Vivamus auctor semper massa. 
+    Nam ac tellus augue. Sed gravida dolor ut nisl tincidunt, quis bibendum velit blandit. 
+    Vivamus iaculis nec turpis ac elementum.
+  </p>
+
+  <p>
+    Nam arcu libero, tristique semper sagittis vel, ultrices ut urna. Morbi ac sem egestas, 
+    dapibus eros ac, ultrices nisi. Praesent porttitor nulla sed est placerat, vel accumsan 
+    ipsum condimentum. Sed facilisis mauris massa, tincidunt feugiat massa interdum laoreet. 
+    Sed nec arcu lectus. Cras ac diam sapien. Maecenas sit amet libero ipsum. Nunc ante dolor, 
+    faucibus vel pulvinar vitae, aliquet ut mauris. Fusce ac sollicitudin lorem. Vestibulum 
+    sagittis sapien sed convallis porta. Curabitur sit amet leo ut enim malesuada dapibus.
+  </p>
+</section>
+
+<section id="about-blockchain">
+  <div class="container about-blockchain-container">
+    <h3>Blockchain? What is that?</h3>
+    <div class="row">
+      <p class="col">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur condimentum 
+        eros sed tempus congue. Donec justo risus, sollicitudin sed augue sed, faucibus 
+        commodo tortor. Nulla a nulla odio. In vehicula, neque in faucibus imperdiet, 
+        enim libero suscipit arcu, in sagittis nibh leo eu turpis. Ut id laoreet arcu, 
+        eu porttitor dolor. Mauris vitae pretium leo. Fusce id tellus nibh. Mauris 
+        scelerisque tellus eget mi faucibus dapibus. Vivamus varius nibh sit amet felis 
+        lacinia lobortis.
+      </p>
+      <%= image_tag('blockchain.png', class: 'col blockchain-img') %>
+    </div>
+
+    <p>
+      Nam congue justo in ante condimentum vestibulum. Nulla facilisi. Pellentesque id 
+      eros dignissim, consequat ante eget, pulvinar dolor. Vivamus auctor semper massa. 
+      Nam ac tellus augue. Sed gravida dolor ut nisl tincidunt, quis bibendum velit blandit. 
+      Vivamus iaculis nec turpis ac elementum.
+    </p>
+
+    <p>
+      Nam arcu libero, tristique semper sagittis vel, ultrices ut urna. Morbi ac sem egestas, 
+      dapibus eros ac, ultrices nisi. Praesent porttitor nulla sed est placerat, vel accumsan 
+      ipsum condimentum. Sed facilisis mauris massa, tincidunt feugiat massa interdum laoreet. 
+      Sed nec arcu lectus. Cras ac diam sapien. Maecenas sit amet libero ipsum. Nunc ante dolor, 
+      faucibus vel pulvinar vitae, aliquet ut mauris. Fusce ac sollicitudin lorem. Vestibulum 
+      sagittis sapien sed convallis porta. Curabitur sit amet leo ut enim malesuada dapibus.
+    </p>
+  </div>
+</section>
+
+<section id="about-use">
+  <div class="container about-use-container">
+    <h4>How are cryptocurrenies useful for me?</h4>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac lacinia orci, vel auctor 
+      lacus. Proin lacinia sapien tortor, a interdum risus consectetur ac. Sed volutpat orci 
+      eu elit finibus, id molestie nulla aliquam. Vestibulum bibendum eleifend massa a ultrices. 
+      Vestibulum egestas augue at vulputate porttitor. Suspendisse ipsum est, ultrices vitae 
+      bibendum sed, molestie sit amet velit. Nam vitae metus at nunc pellentesque dapibus. Fusce 
+      sollicitudin eros at sapien luctus, semper congue erat lacinia. Aenean at elementum erat, 
+      dapibus fermentum nisl. In mollis, eros interdum bibendum fringilla, nibh est vulputate 
+      purus, et bibendum metus urna vitae arcu. Nulla sit amet ipsum commodo, tincidunt leo 
+      lobortis, lobortis mi.
+    </p>
+
+    <p>
+      Aenean nec malesuada orci. Fusce a dui non urna dignissim consequat a a arcu. Donec sodales 
+      felis nulla, et blandit mi scelerisque id. Etiam sodales nunc nisl, non laoreet ante dictum 
+      eu. Curabitur suscipit eros auctor pulvinar dapibus. Proin sodales est nec ex ultrices 
+      ullamcorper. Mauris vitae aliquet ipsum. In vitae leo et magna lacinia lobortis. Cras nisl 
+      sapien, accumsan feugiat iaculis quis, sodales id tellus. Vestibulum ante ipsum primis in 
+      faucibus orci luctus et ultrices posuere cubilia Curae; In non fringilla massa.
+    </p>
+
+    <p>
+      Ut facilisis placerat ligula. Vivamus in tortor quis odio vestibulum semper eget vel lacus. 
+      Donec eu odio nec ipsum congue imperdiet. Nunc at lectus nibh. Sed dignissim, tellus vel 
+      ornare congue, nunc turpis sollicitudin orci, gravida feugiat eros magna nec velit. Mauris 
+      venenatis nisl quam, eu commodo metus tempus vitae. Nulla facilisi. In rutrum nibh at lorem 
+      imperdiet bibendum. Etiam pharetra sagittis quam et ultrices. Etiam vehicula fringilla dolor, 
+      sit amet varius felis malesuada et. Ut ullamcorper, ipsum vel sodales rutrum, elit ligula 
+      semper magna, sit amet tincidunt erat lorem eget metus. Pellentesque eleifend, velit eu 
+      sollicitudin luctus, ipsum orci finibus diam, laoreet sollicitudin mauris lectus vel tellus. 
+      Quisque pellentesque nisi at consectetur tincidunt. Praesent pellentesque libero condimentum 
+      venenatis sollicitudin.
+    </p>
+
+    <p>
+      Nullam sollicitudin malesuada leo ac ullamcorper. Pellentesque ligula velit, dictum id 
+      lobortis quis, commodo a est. Cras mi justo, pharetra eget tempus ac, viverra lobortis 
+      ipsum. Aenean sed lorem lobortis risus facilisis luctus. Mauris id arcu semper libero 
+      gravida ultrices. Sed vulputate varius diam, in commodo urna. Vivamus ut risus vel augue 
+      lobortis tempus vitae at risus. Nulla vehicula bibendum suscipit. Cras suscipit, arcu 
+      suscipit iaculis porta, odio enim feugiat nisi, porttitor condimentum lectus leo sit amet 
+      turpis. Nulla blandit mauris ac pulvinar cursus. Phasellus bibendum quis mi non bibendum. 
+      Curabitur sit amet metus lorem. Phasellus nec fermentum lectus. Proin ultrices diam felis, 
+      ut convallis lorem consectetur eu. Ut libero lacus, ornare sed risus et, vestibulum 
+      placerat magna.
+    </p>
+  </div>
 </section>
