@@ -2,6 +2,8 @@ KwantumCoins
 ======
 **_This is a personal project and is not meant for production use._**
 
+Currently deployed at [https://kwantumcoins.herokuapp.com/]
+
 Preparation
 ---
 *I will add my wireframe drawings and schema at a later date*
@@ -49,3 +51,5 @@ Transactions should be saved so that you can display a list of transactions the 
 You can fetch the current CAD ask price for Bitcoin using this API - https://api.quadrigacx.com/v2/ticker?book=btc_cad
 And the current CAD ask price for Ethereum using this API - https://api.quadrigacx.com/v2/ticker?book=eth_cad
 Please provide the source code via Github
+
+See link deployed at above ^
