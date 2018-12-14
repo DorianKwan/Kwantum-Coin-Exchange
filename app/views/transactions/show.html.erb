@@ -1,39 +1,35 @@
-<section class="col-md-6 col-md-offset-3 order-table">
-  <h2>Transaction Details:</h2>
-  <div class="row">
+<section id="show-transaction-section" class="order-table">
+  <div class="container transaction-container">
+    <h1 class="transaction-details">Transaction Details:</h2>
     <div class="panel panel-default">
 
       <div class="panel-heading">
-        <h3 class="text-center"><%= @transaction.type_of_crypto.humanize %> has been added to your wallet.</h3>
+        <h2 class="text-center"><%= @transaction.type_of_crypto.humanize %> has been added to your wallet.</h3>
       </div>
 
-      <div class="panel-body">
-        <p class="text-center thank-you">Thank you for choosing Kwantum Coins!</p>
-        <p class="text-center">Here is your order!</p>
-      </div>
-
-      <table class="table table-striped cart-items">
-        <tr>
-          <th>Cryptocurrency</th>
-          <th class="text-right">Quantity in Coins</th>
-          <th class="text-right"><%= @transaction.type_of_crypto.humanize %> Purchase Price</th>
-          <th class="text-right">Price</th>
-        </tr>
-        <tr>
-          <th><%= @transaction.type_of_crypto.humanize %></th>
-          <th class="text-center"><%= @transaction.amount_of_coin %></th>
-          <th class="text-center"><%= @transaction.crypto_price %></th>
-          <th class="text-right"><%= @transaction.order_total.round(2) %></th>
-        </tr>
-      </table>
-
-      <table class="table price">
-        <tr>
-          <td></td>
-        </tr>
-        <tr>
-          <td><% @transaction.order_total %></td>
-        <tr>
+      <table class="table table-striped cart-items border">
+        <thead class="thead-dark">
+          <tr>
+            <th>Cryptocurrency</th>
+            <th class="text-right">Quantity in Coins</th>
+            <th class="text-right"><%= cryptocurrency = @transaction.type_of_crypto.humanize %> Purchase Price</th>
+            <th class="text-right">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><%= @transaction.type_of_crypto.humanize %></th>
+            <th class="text-center"><%= cryptocurrency === "Bitcoin" ? '₿' : 'Ξ' %> <%= @transaction.amount_of_coin %></th>
+            <th class="text-center">$<%= @transaction.crypto_price %></th>
+            <th class="text-right">$<%= @transaction.order_total.round(2) %></th>
+          </tr>
+        </tbody>
+        <tfoot>
+          <th></th>
+          <th></th>
+          <th>Order Total:</th>
+          <th>$<%= @transaction.order_total.round(2) %></th>
+        </tfoot>
       </table>
     </div>
   </div>
