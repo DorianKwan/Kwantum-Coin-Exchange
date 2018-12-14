@@ -1,11 +1,4 @@
 <section class="col-md-6 col-md-offset-3 order-table">
-
-  <% if current_user && current_user.email.eql?(@transaction.user_email) %>
-    <p>Hello <%= current_user.full_name %></p>
-  <% else %>
-    <p>Hello Guest</p>
-  <% end %>  
-
   <h2>Transaction Details:</h2>
   <div class="row">
     <div class="panel panel-default">
