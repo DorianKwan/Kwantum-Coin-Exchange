@@ -1,12 +1,12 @@
 <section class="container transaction-history col-md-9 col-md-offset-3">
   <div class="row">
-    <h1>Transation History</h1>
+    <h1>Your Transation History</h1>
     <% unless user_signed_in? %>
       <span>To see your transactions, you must <a href="/users/sign_in">sign in</a>!</span>
       <span>If you don't have an account you can <a href="/users/sign_in">register here</a>!</span>
     <% end %>
       <table class="table table-striped transaction-history-table border">
-        <thead class="thead-dark">
+        <thead class="thead-custom-dark">
           <tr>
             <th>Cryptocurrency</th>
             <th class="text-right">Quantity in Coins</th>
