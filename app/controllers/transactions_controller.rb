@@ -46,6 +46,11 @@ class TransactionsController < ApplicationController
     end
     
     @transaction = Transaction.find(params[:format].to_i)
+
+    unless @transaction.user_id.eql?(current_user.id)
+      flash[:alert] = 'You can only view transaction made by yourself.'
+      redirect_back(transactions_index_path)
+    end
   end
 
   def raise_flash_error(message)
