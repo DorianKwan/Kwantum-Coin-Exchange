@@ -28,6 +28,23 @@
 
     .devise-user-buttons {
       padding-top: 30px;
+
+      .devise-action-buttons {
+        border: 1.3px solid #333;
+        font-size: 1.1em;
+        min-width: 50%;
+        padding: 2.5px 15px;
+        margin-left: -15px;
+      }
+
+      a {
+        margin-top: 5px;
+      }
+
+      .left-col {
+        position: relative;
+        top: 5px;
+      }
     }
 
     .devise-user-labels {
@@ -64,9 +81,5 @@
     margin-top: 7.5px;
     padding-bottom: 2.5px;
     font-size: 12px;
-  }
-
-  .action-buttons {
-    padding-top: 40px;
   }
 }
