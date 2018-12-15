@@ -15,16 +15,18 @@
       </div>
 
       <div class="row devise-user-buttons">
-      <% if devise_mapping.rememberable? -%>
-        <div class="field col">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end -%>
+        <% if devise_mapping.rememberable? -%>
+          <div class="field col left-col">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% else -%>
+          <div class="col"></div>
+        <% end -%>
 
-      <div class="actions col">
-        <%= f.submit "Log in" %>
-      </div>
+        <div class="actions col">
+          <%= f.submit "Log in", class: 'devise-action-buttons' %>
+        </div>
       </div>
     <% end %>
 
