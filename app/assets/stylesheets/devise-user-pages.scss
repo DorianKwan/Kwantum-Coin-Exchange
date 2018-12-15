@@ -5,6 +5,13 @@
   min-height: calc(100vh - 200px);
   width: 100%;
 
+  .back-arrow {
+    font-size: 1.6em;
+    position: absolute;
+    margin-top: -15px;
+    margin-left: -235px;
+  }
+
   .devise-user-container {
     width: 40%;
     background-color: white;
@@ -48,13 +55,6 @@
 
 #edit-user-section {
   padding-bottom: 80px;
-
-  .back-arrow {
-    font-size: 1.6em;
-    position: absolute;
-    margin-top: -15px;
-    margin-left: -235px;
-  }
 
   .devise-user-container{
     padding: 40px 50px 10px 50px;
