@@ -1,5 +1,6 @@
  <section id="registration-section" class="devise-user-section">
   <div class="container devise-user-container text-center">
+    <span class="back-arrow"><%= link_to "<i class='fas fa-arrow-left'></i>".html_safe, root_path %></span>
     <h2>Sign up</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
