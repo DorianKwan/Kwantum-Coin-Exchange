@@ -1,19 +1,19 @@
-<section id="login-section">
-  <div class="container login-container text-center">
+<section id="login-section" class="devise-user-section">
+  <div class="container devise-user-container text-center">
     <h2>Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field row">
-        <%= f.label :email, class: 'col login-labels' %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input-field col' %>
+        <%= f.label :email, class: 'col devise-user-labels' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'devise-user-inputs col' %>
       </div>
 
       <div class="field row">
-        <%= f.label :password, class: 'col login-labels' %>
-        <%= f.password_field :password, autocomplete: "current-password", class: 'input-field col' %>
+        <%= f.label :password, class: 'col devise-user-labels' %>
+        <%= f.password_field :password, autocomplete: "current-password", class: 'devise-user-inputs col' %>
       </div>
 
-      <div class="row login-buttons">
+      <div class="row devise-user-buttons">
       <% if devise_mapping.rememberable? -%>
         <div class="field col">
           <%= f.check_box :remember_me %>
