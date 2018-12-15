@@ -33,10 +33,10 @@
         <%= f.password_field :current_password, autocomplete: "current-password", class: "col devise-user-inputs" %>
       </div>
 
-      <div class="row action-buttons">
-        <p class="col"><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <div class="row devise-user-buttons">
+        <p class="col"><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'devise-action-buttons' %></p>
         <div class="actions col">
-          <%= f.submit "Update" %>
+          <%= f.submit "Update", class: 'devise-action-buttons' %>
         </div>
       </div>
     <% end %>
