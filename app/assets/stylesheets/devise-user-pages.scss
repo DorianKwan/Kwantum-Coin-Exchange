@@ -36,7 +36,7 @@
         min-width: 50%;
         padding: 2.5px 15px;
         margin-left: -15px;
-        transition: background-color ease 0.4s;
+        transition: background-color ease 0.5s;
       }
 
       .devise-action-buttons:hover,
@@ -80,7 +80,7 @@
 #edit-user-section {
   padding-bottom: 80px;
 
-  .devise-user-container{
+  .devise-user-container {
     padding: 40px 50px 10px 50px;
   }
   
@@ -88,5 +88,19 @@
     margin-top: 7.5px;
     padding-bottom: 2.5px;
     font-size: 12px;
+  }
+}
+
+#forgot-password-section {
+  .devise-user-container {
+    padding: 50px 50px 40px 50px;
+
+    .devise-user-buttons {
+      padding-top: 35px;
+    }
+    
+    .devise-links {
+      padding-top: 25px;
+    }
   }
 }
