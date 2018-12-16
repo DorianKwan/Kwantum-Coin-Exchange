@@ -8,16 +8,20 @@
   transition: background-color 1s ease 0s;
 
   .home-link {
+    float: left;
+    margin-left: 70px;
+    margin-top: 20px;
+    
     .brand-logo-link img {
       width: 175px;
     }
-
-    float: left;
-    margin-left: 50px;
-    margin-top: 20px;
   }
   
   .navbar-links {
+    float: right;
+    margin-right: 70px;
+    margin-top: 25px;
+    
     a {
       font-family: 'Raleway', sans-serif;
       margin-left: 40px;
@@ -33,10 +37,6 @@
     a:hover {
       background-position: -99.99% 0;
     }
-
-    float: right;
-    margin-right: 50px;
-    margin-top: 25px;
   }
 
   .spinning-coin {
