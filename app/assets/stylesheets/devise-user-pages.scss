@@ -1,0 +1,92 @@
+.devise-user-section {
+  background-color: #efefef;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  min-height: calc(100vh - 200px);
+  width: 100%;
+
+  .back-arrow {
+    font-size: 1.6em;
+    position: absolute;
+    margin-top: -15px;
+    margin-left: -235px;
+  }
+
+  .devise-user-container {
+    width: 40%;
+    background-color: white;
+    padding: 50px;
+    margin-bottom: 125px;
+    -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+
+    h2 {
+      padding-bottom: 15px;
+      border-bottom: 1.25px solid rgba(0, 0, 0, 0.7);
+    }
+
+    .devise-user-buttons {
+      padding-top: 30px;
+
+      .devise-action-buttons {
+        border: 1.3px solid #333;
+        background-color: white;
+        font-size: 1.1em;
+        min-width: 50%;
+        padding: 2.5px 15px;
+        margin-left: -15px;
+        transition: background-color ease 0.4s;
+      }
+
+      .devise-action-buttons:hover,
+      .devise-action-buttons:focus {
+        background-color: #efefef;
+      }
+
+      a {
+        margin-top: 5px;
+      }
+
+      .left-col {
+        position: relative;
+        top: 5px;
+      }
+    }
+
+    .devise-user-labels {
+      margin-top: 15px;
+    }
+
+    .devise-user-inputs	{
+      font-size: 18px;
+      padding: 10px 10px 10px 5px;
+      display: block;
+      border: none;
+      border-bottom: 1px solid #757575;
+      margin-right: 15px;
+    }
+
+    .devise-user-inputs:focus { 
+      outline: none;
+    }
+
+    .devise-links {
+      padding-top: 20px;
+    }
+  }
+}
+
+#edit-user-section {
+  padding-bottom: 80px;
+
+  .devise-user-container{
+    padding: 40px 50px 10px 50px;
+  }
+  
+  .instructions {
+    margin-top: 7.5px;
+    padding-bottom: 2.5px;
+    font-size: 12px;
+  }
+}
