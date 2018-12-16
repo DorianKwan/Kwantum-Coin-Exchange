@@ -60,6 +60,7 @@
     font-size: 20px;
     border: 3px solid white;
     background: none;
+    transition: color ease 0.8s, background-color ease 0.8s;
 
     a {
       text-decoration: none;
@@ -69,12 +70,11 @@
 
   .buy-coins-button:hover,
   .buy-coins-button:focus {
+    background-color: white;
+    
     a {
       color: black;
-      transition: color 0.8s ease-in 0.5s;
     }
-    background-color: white;
-    transition: background-color 0.8s ease-in 0.5s;
   }
 
   .video-overlay { 
