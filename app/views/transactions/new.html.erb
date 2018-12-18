@@ -38,7 +38,7 @@
     </div>
 
     <form action="/purchase" class="new-transaction-form" method="post">
-      <div class="hide-form hidden">
+      <div id="order-form" class="hidden">
         <% unless user_signed_in? %>
           <label>Enter your first name:</label>
           <input type="text" name="guest_first_name"/>
