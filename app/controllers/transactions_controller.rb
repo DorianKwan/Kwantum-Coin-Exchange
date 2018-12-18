@@ -6,8 +6,9 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    unless params['amount-of-coin'].present? || params['order-total'].present?
-      raise_flash_error('There was an issue with your input. Please Try Again.')
+    if missing_values?(params)
+      raise_flash_error('Please Enter an amount of Coin or Cash.')
+      return
     end
 
     @transaction = Transaction.new(
@@ -17,7 +18,6 @@ class TransactionsController < ApplicationController
       amount_of_coin: params['amount-of-coin'].to_f,
       order_total: params['order-total'].to_f,
     )
-
 
     @transaction.guest_email = current_user ? '' : params['guest_email']
     
@@ -51,12 +51,16 @@ class TransactionsController < ApplicationController
 
     unless @transaction.user_id.eql?(current_user.id)
       flash[:alert] = 'You can only view transaction made by yourself.'
-      redirect_back(transactions_index_path)
+      redirect_back fallback_location: transactions_index_path
     end
+  end
+
+  def missing_values?(params)
+    params['order-total'] == "0"
   end
 
   def raise_flash_error(message)
     flash[:alert] = message
-    redirect_back(transactions_new_path)
+    redirect_back fallback_location: transactions_new_path
   end
 end
