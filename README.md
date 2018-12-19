@@ -29,25 +29,25 @@ Screenshots
 Here are a few screenshot of the application in use.  
 
 Main Page  
-![alt text](app/assets/images/screenshots/main-page-hero-img)  
+![alt text](app/assets/images/screenshots/main-page-hero-img.png?raw=true)  
 
 Sign up Page  
-![alt text](app/assets/images/screenshots/registration)  
+![alt text](app/assets/images/screenshots/registration.png?raw=true)  
 
 Transaction Page  
-![alt text](app/assets/images/screenshots/transaction-form)
+![alt text](app/assets/images/screenshots/transaction-form.png?raw=true)
 
 Transaction Form  
-![alt text](app/assets/images/screenshots/transaction-form-2)  
+![alt text](app/assets/images/screenshots/transaction-form-2.png?raw=true)  
 
 Transaction Details / Confirmation  
-![alt text](app/assets/images/screenshots/transaction-details)  
+![alt text](app/assets/images/screenshots/transaction-details.png?raw=true)  
 
 Transaction History  
-![alt text](app/assets/images/screenshots/transaction-history)  
+![alt text](app/assets/images/screenshots/transaction-history.png?raw=true)  
 
 Main Page Info Sections  
-![alt text](app/assets/images/screenshots/main-page-2)  
+![alt text](app/assets/images/screenshots/main-page-2.png?raw=true)  
 
 
 Setup
