@@ -9,6 +9,12 @@ Preparation
 This project was started for an application process to test and show my front-end and back-end development skills.  
 Afterwards, I kept working on it to make it worthy of a personal project to be added to my portfolio.  
 
+Some goals I personally wanted to achieve:  
+ - Build an Rails application from scratch; further my knowledge as a Ruby on Rails developer
+ - Learn about Bootstrap 4 and it's grid system
+ - Gain more experience using jQuery and CSS for smooth transitioning
+ - Learn how to host an application using Heroku
+
 The basic functionality was to have an application where users could buy crypto online via a basic form input.  
 The full spec list of the requirements:  
  - Users are presented with a form for purchasing cryptocurrency
@@ -50,5 +56,39 @@ Main Page Info Sections
 ![alt text](app/assets/images/screenshots/main-page-2.png?raw=true)  
 
 
-Setup
+Getting Started
 ---
+
+##### Clone repository to local repository  
+ `git@github.com:DorianKwan/Kwantum-Coin-Exchange.git`
+
+##### Install dependecies  
+`bundle install`  
+
+##### This application uses Ruby version 2.4.5
+Check your Ruby version:  
+`ruby -v`
+
+If you need to change ruby versions use RVM  
+On Mac OSX (RVM install)  
+`\curl -sSL https://get.rvm.io | bash`  
+
+Install Ruby 2.4.5 and use 
+`rvm install 2.4.5 && rvm use 2.4.5`  
+`ruby -v`
+
+##### Copy and edit the application.yml  
+Copy the application.yml file:  
+`cp config/application.yml.example config/application.yml`  
+
+If you would like, edit the database name, user and password in the database.yml file.  
+
+Generate a secret and update the `SECRET_BASE_KEY` in the application.yml file.  
+
+##### Initialize Database
+`rake db:create`  
+`rake db:schema:load`  
+
+##### Start up the Application
+You should be good to start up the app.  
+`rails s`
