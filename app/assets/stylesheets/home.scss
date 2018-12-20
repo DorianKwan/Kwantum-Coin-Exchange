@@ -202,3 +202,56 @@
     }
   }
 }
+
+#join-us {
+  height: 600px;
+
+  .fullscreen-bg-2 {
+    position: fixed;
+    background-image: url('../assets/grid-background.jpg');
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -101;
+  }
+
+  .background-overlay {
+    margin-top: -80px;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    
+    h5 {
+      font-size: 36px;
+      padding-top: 12.5%;
+    }
+  
+    .join-us-button {
+      z-index: 3;
+      margin-top: 15px;
+      padding-top: 7.5px;
+      padding-bottom: 7.5px;
+      background-color: rgba(0, 0, 0, 0.4);
+      width: 12%;
+      height: auto;
+      font-size: 20px;
+      border: 3px solid white;
+      transition: background-color ease 0.8s;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+
+    .join-us-button:hover,
+    .join-us-button:focus {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+}
