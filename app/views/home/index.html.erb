@@ -14,29 +14,65 @@
 
 <section id="crypto-data">
   <%
-    btc_last, btc_high, btc_low = @crypto_api_service.get_crypto_price_data('btc')
-    eth_last, eth_high, eth_low = @crypto_api_service.get_crypto_price_data('eth')
+    btc_last, btc_high, btc_low, btc_vwap, btc_vol = @crypto_api_service.get_crypto_price_data('btc')
+    eth_last, eth_high, eth_low, eth_vwap, eth_vol = @crypto_api_service.get_crypto_price_data('eth')
   %>
   <div class="container-fluid crypto-container">
     <div class="row">
-      <span class="col-5"></span>
-      <span class="col-2 data-header">Last Sold Price</span>
-      <span class="col-2 data-header">Daily High</span>
-      <span class="col-2 data-header">Daily Low</span>
+      <div class="row col">
+        <span class="col-4"></span>
+        <span class="col">Bitcoin 24h Price Action</span>
+      </div>
+      <div class="row col">
+        <span class="col-3"></span>
+        <span class="col">Ethereum 24h Price Action</span>
+      </div>
     </div>
     <div class="row">
-      <span class="col-5"><b>Bitcoin 24 hour activity</b></span>
-      <span class="col-2">$<b><%= btc_last %></b> CAD</span>
-      <span class="col-2">$<b><%= btc_high %></b> CAD</span>
-      <span class="col-2">$<b><%= btc_low %></b> CAD</span>
+      <div class="bitcoin-stats col row">
+        <div class="col-5">
+          <%= image_tag('/assets/bitcoin.png') -%>
+        </div>
+        <div class="row col-7">
+          <ul class="col-5">
+            <li>Last Price:</li>
+            <li>24h High:</li>
+            <li>24h Low:</li>
+            <li>24h VWAP:</li>
+            <li>24h Volume:</li>
+          </ul>
+          <ul class="col">
+            <li>$<%= btc_last %></li>
+            <li>$<%= btc_high %></li>
+            <li>$<%= btc_low %></li>
+            <li>$<%= btc_vwap %></li>
+            <li><%= btc_vol %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ethereum-stats col row">
+        <div class="col-4">
+          <%= image_tag('/assets/ethereum.png') -%>
+        </div>
+        <div class="row col-8">
+          <ul class="col-5">
+            <li>Last Price:</li>
+            <li>24h High:</li>
+            <li>24h Low:</li>
+            <li>24h VWAP:</li>
+            <li>24h Volume:</li>
+          </ul>
+          <ul class="col">
+            <li>$<%= eth_last %></li>
+            <li>$<%= eth_high %></li>
+            <li>$<%= eth_low %></li>
+            <li>$<%= eth_vwap %></li>
+            <li><%= eth_vol %></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="row">
-      <span class="col-5"><b>Ethereum 24 hour activity</b></span>
-      <span class="col-2">$<b><%= eth_last %></b> CAD</span>
-      <span class="col-2">$<b><%= eth_high %></b> CAD</span>
-      <span class="col-2">$<b><%= eth_low %></b> CAD</span>
-    </div>
-  <div>
+  </div>
 </section>
 
 <section id="about-crypto">
