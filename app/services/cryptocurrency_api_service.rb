@@ -26,6 +26,6 @@ class CryptocurrencyApiService
     uri  = URI(url)
     res  = Net::HTTP.get(uri)
     json = JSON.parse(res)
-    [json['last'], json['high'], json['low'], json['vwap'], json['volume']]
+    [json['last'], json['high'], json['low'], json['vwap'], json['volume'].to_f.round(2)]
   end
 end

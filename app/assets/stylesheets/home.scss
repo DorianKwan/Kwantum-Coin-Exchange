@@ -1,5 +1,5 @@
 #homepage-section {
-  height: calc(100vh - 212px);
+  height: calc(100vh - 247px);
 
   .fullscreen-bg {
     position: fixed;
@@ -47,7 +47,7 @@
     font-family: 'raleway', sans-serif;
     font-size: 28px;
     color: white;
-    margin-top: 20%;
+    margin-top: 17.5%;
   }
 
   .buy-coins-button {
@@ -82,7 +82,7 @@
     background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 0;
-    height: calc(100vh - 212px);
+    height: calc(100vh - 247px);
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
     box-shadow: 0 8px 6px -6px #999;
@@ -97,17 +97,26 @@
   -webkit-box-shadow: 0 8px 6px -6px white;
   -moz-box-shadow: 0 8px 6px -6px white;
   box-shadow: 0 8px 6px -6px white;
+  font-family: 'Raleway', sans-serif;
 
   .crypto-container {
     width: 80%;
+    margin-left: 14%;
     padding-top: 35px;
 
-    .data-header { 
-      font-size: 18px;
+    ul {
+      list-style-type: none;
+      margin-top: 10px;
     }
 
-    div {
-      padding-top: 15px;
+    img {
+      margin-top: -25px;
+    }
+
+    .ethereum-stats {
+      img {
+        width: 110px;
+      }
     }
   }
 }
@@ -174,6 +183,9 @@
   background-color: #efefef;
   top: -80px;
   border-top: 1px solid #555;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
 
   .about-use-container {
     background-color: white;
@@ -190,6 +202,59 @@
 
     h4 {
       font-size: 32px;
+    }
+  }
+}
+
+#join-us {
+  height: 600px;
+
+  .fullscreen-bg-2 {
+    position: fixed;
+    background-image: url('../assets/grid-background.jpg');
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -101;
+  }
+
+  .background-overlay {
+    margin-top: -80px;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    
+    h5 {
+      font-size: 36px;
+      padding-top: 12.5%;
+    }
+  
+    .join-us-button {
+      z-index: 3;
+      margin-top: 15px;
+      padding-top: 7.5px;
+      padding-bottom: 7.5px;
+      background-color: rgba(0, 0, 0, 0.4);
+      width: 12%;
+      height: auto;
+      font-size: 20px;
+      border: 3px solid white;
+      transition: background-color ease 0.8s;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+
+    .join-us-button:hover,
+    .join-us-button:focus {
+      background-color: rgba(0, 0, 0, 0.7);
     }
   }
 }
