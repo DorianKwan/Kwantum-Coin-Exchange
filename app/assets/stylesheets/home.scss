@@ -183,6 +183,9 @@
   background-color: #efefef;
   top: -80px;
   border-top: 1px solid #555;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
 
   .about-use-container {
     background-color: white;
