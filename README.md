@@ -6,14 +6,14 @@ Currently deployed at https://kwantumcoins.herokuapp.com/
 
 Preparation
 ---
-This project was started for an application process to test and show my front-end and back-end development skills.  
-Afterwards, I kept working on it to make it worthy of a personal project to be added to my portfolio.  
+This project was originally started as a test for a position application process.  It was to show my current front-end and back-end development skills.  
+After I sent my submission, I continued working with the purpose of making it worthy of a personal project to be added to my personal portfolio.  
 
 Some goals I personally wanted to achieve:  
- - Build an Rails application from scratch; further my knowledge as a Ruby on Rails developer
+ - Build a Rails application from scratch; furthering my knowledge and skill as a Ruby on Rails developer
  - Learn about Bootstrap 4 and it's grid system
  - Gain more experience using jQuery and CSS for smooth transitioning
- - Learn how to host an application using Heroku
+ - Learn how to host an application via Heroku
 
 The basic functionality was to have an application where users could buy crypto online via a basic form input.  
 The full spec list of the requirements:  
@@ -32,10 +32,16 @@ Following the wireframes the best I could I started to write the application.
 
 Screenshots
 ---
-Here are a few screenshot of the application in use.  
+Here are a few screenshot of the current application in use.  
 
 Main Page  
-![alt text](app/assets/images/screenshots/main-page-hero-img.png?raw=true)  
+![alt text](app/assets/images/screenshots/main-page.png?raw=true)  
+
+Main Page Info Sections  
+![alt text](app/assets/images/screenshots/main-page-2.png?raw=true)
+
+Site Footer  
+![alt text](app/assets/images/screenshots/main-page-3.png?raw=true)
 
 Sign up Page  
 ![alt text](app/assets/images/screenshots/registration.png?raw=true)  
@@ -51,9 +57,7 @@ Transaction Details / Confirmation
 
 Transaction History  
 ![alt text](app/assets/images/screenshots/transaction-history.png?raw=true)  
-
-Main Page Info Sections  
-![alt text](app/assets/images/screenshots/main-page-2.png?raw=true)  
+  
 
 
 Getting Started
