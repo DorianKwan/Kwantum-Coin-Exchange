@@ -35,7 +35,14 @@ Screenshots
 Here are a few screenshot of the application in use.  
 
 Main Page  
-![alt text](app/assets/images/screenshots/main-page-hero-img.png?raw=true)  
+![alt text](app/assets/images/screenshots/main-page.png?raw=true)  
+
+Main Page Info Sections  
+![alt text](app/assets/images/screenshots/main-page-2.png?raw=true)
+
+Site Footer  
+![alt text](app/assets/images/screenshots/main-page-3.png?raw=true)
+
 
 Sign up Page  
 ![alt text](app/assets/images/screenshots/registration.png?raw=true)  
@@ -51,9 +58,7 @@ Transaction Details / Confirmation
 
 Transaction History  
 ![alt text](app/assets/images/screenshots/transaction-history.png?raw=true)  
-
-Main Page Info Sections  
-![alt text](app/assets/images/screenshots/main-page-2.png?raw=true)  
+  
 
 
 Getting Started
