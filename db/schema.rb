@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181212194423) do
+ActiveRecord::Schema.define(version: 20191209020917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cryptocurrencies", force: :cascade do |t|
+    t.string "name"
+    t.string "symbol"
+    t.json "display_data"
+    t.json "raw_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "transactions", force: :cascade do |t|
-    t.integer "type_of_crypto", null: false
     t.integer "purchase_type", null: false
     t.float "amount_of_coin", null: false
     t.float "order_total", null: false
@@ -24,6 +32,8 @@ ActiveRecord::Schema.define(version: 20181212194423) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "cryptocurrency_id"
+    t.index ["cryptocurrency_id"], name: "index_transactions_on_cryptocurrency_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
@@ -41,5 +51,6 @@ ActiveRecord::Schema.define(version: 20181212194423) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "transactions", "cryptocurrencies"
   add_foreign_key "transactions", "users"
 end
