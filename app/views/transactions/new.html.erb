@@ -1,7 +1,7 @@
 <section id="new-transaction">
   <div class="container form-box">
     <h1 class="transaction-title">Buy Cryptocurrency</h1>
-    <h2 class="crypto-offered">We currently offer the purchasing of Bitcoin and Ethereum.</h2>
+    <h2 class="crypto-offered">We currently offer Bitcoin, Ethereum, Litecoin & Ripple.</h2>
     
     <label class="instruction-label">How it works:</label>
     <div class="row">
@@ -22,14 +22,19 @@
           Select Crypto
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <button class="dropdown-item bitcoin-select" type="button">Bitcoin</button>
-          <button class="dropdown-item ethereum-select" type="button">Ethereum</button>
+          <% @cryptocurrencies.each do |crypto| %>
+            <button class="dropdown-item <%= crypto.name.downcase %>-select" type="button"><%= crypto.name.humanize %></button>
+          <% end %>
         </div>
       </div>
 
       <div class="col-6 crypto-prices">
-        <span class="btc-value hidden">Last BTC Price Per Unit: $<span class="btc-price"><%= @crypto_api_service.bitcoin_price %></span>.</span>
-        <span class="eth-value hidden">Last ETH Price Per Unit: $<span class="eth-price"><%= @crypto_api_service.ethereum_price %></span>.</span>
+        <% @cryptocurrencies.each do |crypto| 
+          symbol_lower = crypto.symbol.downcase
+        %>
+          <span class="<%= symbol_lower %>-value hidden">Last <%= crypto.symbol.upcase %> price per unit: $<%= crypto.price %></span>
+          <span class="<%= symbol_lower %>-price hidden"><%= crypto.raw_price %></span>
+        <% end %>
       </div>
 
       <div class="purchase-type-toggle col-3">
@@ -54,7 +59,7 @@
         </div>
         <input class="order-total-hidden" type="hidden" name="order-total">
         <input class="purchase-type" type="hidden" name="purchase-type" value="cad">
-        <input class="type-of-crypto" type="hidden" name="type-of-crypto">
+        <input class="cryptocurrency-type" type="hidden" name="cryptocurrency-type">
         <div class="row total-row">
           <label class="cad-label col">CAD Total:</label>
           <span class="purchase-total col">$<span class="order-total">0.00</span></span>
