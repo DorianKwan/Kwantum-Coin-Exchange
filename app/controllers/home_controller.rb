@@ -3,6 +3,6 @@ class HomeController < ApplicationController
 
   def index
     @home_page = true
-    @crypto_api_service = CryptocurrencyApiService.new()
+    @btc, @eth, @ltc, @xrp = Cryptocurrency.where(symbol: ['BTC', 'ETH', 'LTC', 'XRP']).order(:symbol)
   end
 end
