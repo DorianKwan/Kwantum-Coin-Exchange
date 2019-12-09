@@ -6,65 +6,19 @@ Currently deployed at https://kwantumcoins.herokuapp.com/
 
 Preparation
 ---
-This project was originally started as a test for a position application process.  It was to show my current front-end and back-end development skills.  
-After I sent my submission, I continued working with the purpose of making it worthy of a personal project to be added to my personal portfolio.  
+This application was originally built for an application process but was further developed for learning purposes.  
 
-Some goals I personally wanted to achieve:  
- - Build a Rails application from scratch; furthering my knowledge and skill as a Ruby on Rails developer
- - Learn about Bootstrap 4 and it's grid system
- - Gain more experience using jQuery and CSS for smooth transitioning
- - Learn how to host an application via Heroku
+Using real cryptocurrency data pulled from CryptoCompare's API, I build a very basic Rails application to process dummy transactions. 
 
-The basic functionality was to have an application where users could buy crypto online via a basic form input.  
-The full spec list of the requirements:  
- - Users are presented with a form for purchasing cryptocurrency
- - The form should allow the user to choose to buy either Bitcoin or Ethereum
- - Users can either enter a CAD amount, or a number of coins to buy, and click a buy button to perform the transaction
- - Transactions should be saved so that you can display a list of transactions the user has made, including the CAD price, the type of coin and the number of coins purchased
- - You can fetch the current CAD ask price for Bitcoin using this API - https://api.quadrigacx.com/v2/ticker?book=btc_cad
- - And the current CAD ask price for Ethereum using this API - https://api.quadrigacx.com/v2/ticker?book=eth_cad
- - Please provide the source code via Github
+See documentation here: https://min-api.cryptocompare.com/documentation  
 
- To start, I drew up some wireframes and planned a basic database schema.  
- ![alt text](app/assets/images/screenshots/wireframes_and_schema.jpg?raw=true "Wireframes and Schema")
+There is a scheduler running requests to their API for updated data once a minute.  That data gets stored for later use by the controller and then rendered on the view.
 
-Following the wireframes the best I could I started to write the application.  
-
-Screenshots
----
-Here are a few screenshot of the current application in use.  
-
-Main Page  
-![alt text](app/assets/images/screenshots/main-page.png?raw=true)  
-
-Main Page Info Sections  
-![alt text](app/assets/images/screenshots/main-page-2.png?raw=true)
-
-Site Footer  
-![alt text](app/assets/images/screenshots/main-page-3.png?raw=true)
-
-Sign up Page  
-![alt text](app/assets/images/screenshots/registration.png?raw=true)  
-
-Transaction Page  
-![alt text](app/assets/images/screenshots/transaction-form.png?raw=true)
-
-Transaction Form  
-![alt text](app/assets/images/screenshots/transaction-form-2.png?raw=true)  
-
-Transaction Details / Confirmation  
-![alt text](app/assets/images/screenshots/transaction-details.png?raw=true)  
-
-Transaction History  
-![alt text](app/assets/images/screenshots/transaction-history.png?raw=true)  
-  
-
-
-Getting Started
+Quick Start
 ---
 
-##### Clone repository to local repository  
- `git@github.com:DorianKwan/Kwantum-Coin-Exchange.git`
+##### Clone repository  
+ `git clone https://github.com/DorianKwan/Crypto-API-Rails-Project.git`
 
 ##### Install dependecies  
 `bundle install`  
@@ -87,12 +41,20 @@ Copy the application.yml file:
 
 If you would like, edit the database name, user and password in the database.yml file.  
 
-Generate a secret and update the `SECRET_BASE_KEY` in the application.yml file.  
+Generate a secret and update `SECRET_BASE_KEY` in the application.yml
+
+```bash
+rake secret
+```
+
+Generate a new API key here and your new API key to `CRYPTO_API_KEY` in the application.yml file.  
+
+https://www.cryptocompare.com/cryptopian/api-keys  
+
 
 ##### Initialize Database
 `rake db:create`  
 `rake db:schema:load`  
 
 ##### Start up the Application
-You should be good to start up the app.  
 `rails s`
