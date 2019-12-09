@@ -11,9 +11,16 @@ class TransactionsController < ApplicationController
       return
     end
 
+    unless Cryptocurrency.all.pluck(:symbol).include?(params['cryptocurrency-type'])
+      raise_flash_error('Invalid cryptocurrency.')
+      return
+    end
+    
+    crypto = Cryptocurrency.where(symbol: params['cryptocurrency-type']).first
+
     @transaction = Transaction.new(
       user_id: current_user.id,
-      type_of_crypto: params['type-of-crypto'],
+      cryptocurrency_id: crypto.id,
       purchase_type: params['purchase-type'],
       amount_of_coin: params['amount-of-coin'].to_f,
       order_total: params['order-total'].to_f,
@@ -22,7 +29,7 @@ class TransactionsController < ApplicationController
     @transaction.guest_email = current_user ? '' : params['guest_email']
     
     if @transaction.save
-      flash[:notice] = "You've successfully purchased #{@transaction.type_of_crypto.humanize}!"
+      flash[:notice] = "You've successfully purchased #{@transaction.cryptocurrency.name.humanize}!"
       redirect_to(transactions_show_path(@transaction))
     else
       flash[:alert] = "There was an error during the transaction.  Please Try Again."
@@ -37,8 +44,7 @@ class TransactionsController < ApplicationController
     end
 
     @buy_page = true
-
-    @crypto_api_service = CryptocurrencyApiService.new()
+    @cryptocurrencies = Cryptocurrency.where(symbol: ['BTC', 'ETH', 'LTC', 'XRP']).order(:symbol)
   end
 
   def show
