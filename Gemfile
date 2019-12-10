@@ -25,6 +25,8 @@ gem 'bootstrap'
 
 gem 'devise', '~> 4.7.1'
 
+gem 'rails_admin', '~> 2.0'
+
 gem 'figaro'
 
 # Use CoffeeScript for .coffee assets and views
