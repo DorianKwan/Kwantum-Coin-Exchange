@@ -8,6 +8,10 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_user)
 
+  config.authorize_with do
+    redirect_to main_app.root_path unless warden.user.admin?
+  end
+
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   config.actions do
