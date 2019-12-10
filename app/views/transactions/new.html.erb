@@ -28,12 +28,23 @@
         </div>
       </div>
 
+      <!-- Hidden values to dynamically create jQuery listeners in purchase-form.js  -->
+      <div class="hidden crypto-data">
+        <% @cryptocurrencies.each do |crypto| 
+          symbol_lower = crypto.symbol.downcase %>
+          <div id="<%= symbol_lower %>">
+            <span class="<%= symbol_lower %>-price hidden"><%= crypto.raw_price %></span>
+            <span class="crypto-name"><%= crypto.name.humanize %></span>
+            <span class="crypto-character"><%= crypto.get_char %></span>
+          </div>
+        <% end %>
+      </div>
+
       <div class="col-6 crypto-prices">
         <% @cryptocurrencies.each do |crypto| 
           symbol_lower = crypto.symbol.downcase
         %>
           <span class="<%= symbol_lower %>-value hidden">Last <%= crypto.symbol.upcase %> price per unit: $<%= crypto.price %></span>
-          <span class="<%= symbol_lower %>-price hidden"><%= crypto.raw_price %></span>
         <% end %>
       </div>
 
@@ -53,7 +64,7 @@
           <input type="text" name="guest_email"/>
         <% end %>
         <div class="row">
-          <label class="amount-label col-8">Enter the desired amount of coin(s) in CAD:</label>
+          <label class="amount-label col-8">Enter amount of CAD for cryptocurrency:</label>
           <input class="cash-amount col-4" type="number" step="0.01"/>
           <input class="coin-amount col-4 hidden" type="number" name="amount-of-coin" step="0.00001" min="0.00016" max="10000"/>
         </div>
