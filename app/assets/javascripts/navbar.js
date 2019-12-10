@@ -1,7 +1,7 @@
 document.addEventListener("turbolinks:load", function () {
   
-  // Run this code only if yield is homepage-section
-  if ($('#homepage-section').length) {
+  // Run this code only if yield is home index template
+  if ($('.home-index').length) {
     
     // Make the navbar trasnperant
     $('#navbar').removeClass('solid');
@@ -10,7 +10,7 @@ document.addEventListener("turbolinks:load", function () {
 
   $(window).scroll(function() {
     // Run event logic if on homepage
-    if ($('#homepage-section').length) {
+    if ($('.home-index').length) {
       // Checks if the window has been scrolled away from the top
       if($(this).scrollTop() > 10) {
         // Check if the navbar is transparent
