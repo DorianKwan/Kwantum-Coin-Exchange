@@ -21,6 +21,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
 
+gem 'bootstrap'
+
 gem 'devise', '~> 4.7.1'
 
 gem 'figaro'
