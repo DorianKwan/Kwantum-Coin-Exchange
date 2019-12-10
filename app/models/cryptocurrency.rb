@@ -1,4 +1,9 @@
 class Cryptocurrency < ApplicationRecord
+  validates :symbol, presence: true
+  validates_uniqueness_of :symbol
+  validates :name, presence: true
+  validates_uniqueness_of :name
+
   def price(currencyType='CAD')
     self.display_data[currencyType]['PRICE'].sub("#{currencyType} ", '')
   end
