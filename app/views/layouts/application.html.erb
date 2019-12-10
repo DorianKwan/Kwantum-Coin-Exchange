@@ -25,15 +25,17 @@
 
   <body>
     <%= render :partial => "layouts/navbar" %>
-    
+
+    <main>
       <% if notice && @home_page == false %>
         <p class="alert alert-success flash-message"><%= notice %></p>
       <% end %>
       <% if alert %>
         <p class="alert alert-danger flash-message"><%= alert %></p>
       <% end %>
-
-    <%= yield %>
+      
+      <%= yield %>
+    </main>
 
     <%= render :partial => "layouts/footer" %>
   </body>
