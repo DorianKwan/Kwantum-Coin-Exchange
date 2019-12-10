@@ -6,6 +6,7 @@
         <%= link_to 'Buy Crypto', transactions_new_path, :class => 'navbar-link' %>
         <%= link_to 'Transaction History', transactions_index_path, :class => 'navbar-link' %>
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+        <%= link_to 'Admin', '/admin', :class => 'navbar-link' if current_user.admin? %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
         <%= link_to 'Sign up', new_user_registration_path, :class => 'navbar-link'  %>
