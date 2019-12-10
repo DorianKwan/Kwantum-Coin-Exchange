@@ -1,260 +1,281 @@
-#homepage-section {
-  height: calc(100vh - 247px);
-
-  .fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
-  }
-  
-  .fullscreen-bg__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (min-aspect-ratio: 16/9) {
-    .fullscreen-bg__video {
-      height: 300%;
-      top: -100%;
-    }
-  }
-  
-  @media (max-aspect-ratio: 16/9) {
-    .fullscreen-bg__video {
-      width: 300%;
-      left: -100%;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .fullscreen-bg {
-      background: url('assets/backup-poster.png') center center / cover no-repeat;
-    }
-  
-    .fullscreen-bg__video {
-      display: none;
-    }
-  }
-
-  h1 {
-    font-family: 'raleway', sans-serif;
-    font-size: 28px;
+.home-index {
+  .hero {
+    height: calc(100vh - 15.4375rem);
+    min-height: 35.875rem;
     color: white;
-    margin-top: 17.5%;
-  }
 
-  .buy-coins-button {
-    z-index: 3;
-    margin-top: 25px;
-    padding-top: 7.5px;
-    padding-bottom: 7.5px;
-    width: 12%;
-    height: auto;
-    font-size: 20px;
-    border: 3px solid white;
-    background: none;
-    transition: color ease 0.8s, background-color ease 0.8s;
-
-    a {
-      text-decoration: none;
-      color: white;
+    .fullscreen-bg {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -100;
     }
-  }
-
-  .buy-coins-button:hover,
-  .buy-coins-button:focus {
-    background-color: white;
     
-    a {
-      color: black;
+    .fullscreen-bg__video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  
+    @media (min-aspect-ratio: 16/9) {
+      .fullscreen-bg__video {
+        height: 300%;
+        top: -100%;
+      }
+    }
+    
+    @media (max-aspect-ratio: 16/9) {
+      .fullscreen-bg__video {
+        width: 300%;
+        left: -100%;
+      }
+    }
+  
+    @media (max-width: 47.9375em) {
+      .fullscreen-bg {
+        background: url('assets/backup-poster.png') center center / cover no-repeat;
+      }
+    
+      .fullscreen-bg__video {
+        display: none;
+      }
+    }
+
+    .content-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'raleway', sans-serif;
+  
+      h1 {
+        margin-top: -5rem;
+        font-size: 1.75rem;
+        margin-bottom: 1rem
+      }
+
+      h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
+    
+      .brand-button {
+        z-index: 3;
+        margin-top: 1rem;
+        padding: 0.5rem 2rem;
+        background-color: rgba(0, 0, 0, 0.4);
+        font-size: 1.25rem;
+        border: 3px solid white;
+        transition: background-color ease 0.8s;
+  
+        a {
+          text-decoration: none;
+          color: white;
+        }
+
+        &:hover {
+          background-color: white;
+
+          a {
+            color: black
+          }
+        }
+      }
+    }
+
+    .video-overlay { 
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: 0;
+      height: calc(100vh - 15.4375rem);
+      -webkit-box-shadow: 0 8px 6px -6px #999;
+      -moz-box-shadow: 0 8px 6px -6px #999;
+      box-shadow: 0 8px 6px -6px #999;
     }
   }
 
-  .video-overlay { 
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 0;
-    height: calc(100vh - 247px);
+  .crypto-data {
+    position: relative;
+    top: -5rem;
+    background-color: white;
+    height: 250px;
+    -webkit-box-shadow: 0 8px 6px -6px white;
+    -moz-box-shadow: 0 8px 6px -6px white;
+    box-shadow: 0 8px 6px -6px white;
+    font-family: 'Raleway', sans-serif;
+  
+    .crypto-container {
+      width: 80%;
+      margin-left: 14%;
+      padding-top: 2.1875rem;
+  
+      ul {
+        list-style-type: none;
+        margin-top: 0.625;
+      }
+  
+      img {
+        margin-top: -1.5625rem;
+      }
+  
+      .ethereum-stats {
+        img {
+          width: 110px;
+        }
+      }
+    }
+  }
+  
+  #about-crypto {
+    position: relative;
+    background-color: #efefef;
+    top: -5rem;
+    border-top: 1px solid #555;
+    padding-bottom: 1rem;
+  
+    .about-crypto-container {
+      background-color: white;
+      padding: 3.125rem;
+      margin-top: 5rem;
+      margin-bottom: 6.25rem;
+      -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+      box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+      width: 80%;
+      p {
+        width: 100%;
+      }
+    }
+  }
+  
+  #about-blockchain {
+    position: relative;
+    padding-bottom: 1rem;
+    background-color: white;
+    top: -5rem;
+    border-top: 1px solid #555;
+  
+    .about-blockchain-container {
+      background-color: #efefef;
+      padding: 50px;
+      margin-top: 5rem;
+      margin-bottom: 6.25rem;
+      -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
+      box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
+      width: 80%;
+  
+      .blockchain-img {
+        max-width: 500px;
+        height: 215px;
+        margin-top: -2.5rem;
+        margin-right: 1.5625rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+  
+      p {
+        width: 100%;
+      }
+    }
+  }
+  
+  #about-use {
+    position: relative;
+    padding-bottom: 1rem;
+    background-color: #efefef;
+    top: -5rem;
+    border-top: 1px solid #555;
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
     box-shadow: 0 8px 6px -6px #999;
-  }
-}
+  
+    .about-use-container {
+      background-color: white;
+      padding: 3.125rem;
+      margin-top: 5rem;
+      margin-bottom: 6.25rem;
+      -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+      box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
+      width: 80%;
 
-#crypto-data {
-  position: relative;
-  top: -80px;
-  background-color: white;
-  height: 250px;
-  -webkit-box-shadow: 0 8px 6px -6px white;
-  -moz-box-shadow: 0 8px 6px -6px white;
-  box-shadow: 0 8px 6px -6px white;
-  font-family: 'Raleway', sans-serif;
+      h2 {
+        font-size: 2rem;
+      }
 
-  .crypto-container {
-    width: 80%;
-    margin-left: 14%;
-    padding-top: 35px;
-
-    ul {
-      list-style-type: none;
-      margin-top: 10px;
-    }
-
-    img {
-      margin-top: -25px;
-    }
-
-    .ethereum-stats {
-      img {
-        width: 110px;
+      p {
+        width: 100%;
       }
     }
   }
-}
-
-#about-crypto {
-  position: relative;
-  height: 660px;
-  background-color: #efefef;
-  top: -80px;
-  border-top: 1px solid #555;
-
-  .about-crypto-container {
-    background-color: white;
-    padding: 50px;
-    margin-top: 80px;
-    margin-bottom: 125px;
-    -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
-    box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
-    width: 80%;
-    p {
-      width: 100%;
-    }
-  }
-}
-
-#about-blockchain {
-  position: relative;
-  height: 740px;
-  background-color: white;
-  top: -80px;
-  border-top: 1px solid #555;
-
-  .about-blockchain-container {
-    background-color: #efefef;
-    padding: 50px;
-    margin-top: 80px;
-    margin-bottom: 125px;
-    -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
-    box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
-    width: 80%;
-
-    .blockchain-img {
-      max-width: 500px;
-      height: 215px;
-      margin-top: -40px;
-      margin-right: 25px;
-    }
-    
-    h3 {
-      font-size: 32px;
-    }
-
-    p {
-      width: 100%;
-    }
-  }
-}
-
-#about-use {
-  position: relative;
-  height: 920px;
-  background-color: #efefef;
-  top: -80px;
-  border-top: 1px solid #555;
-  -webkit-box-shadow: 0 8px 6px -6px #999;
-  -moz-box-shadow: 0 8px 6px -6px #999;
-  box-shadow: 0 8px 6px -6px #999;
-
-  .about-use-container {
-    background-color: white;
-    padding: 50px;
-    margin-top: 80px;
-    margin-bottom: 125px;
-    -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
-    box-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
-    width: 80%;
-    p {
-      width: 100%;
-    }
-
-    h4 {
-      font-size: 32px;
-    }
-  }
-}
-
-#join-us {
-  height: 600px;
-
-  .fullscreen-bg-2 {
-    position: fixed;
-    background-image: url('../assets/grid-background.jpg');
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -101;
-  }
-
-  .background-overlay {
-    margin-top: -80px;
-    height: 600px;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 1;
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    
-    h5 {
-      font-size: 36px;
-      padding-top: 12.5%;
+  
+  #join-us {
+    height: 400px;
+  
+    .fullscreen-bg-2 {
+      position: fixed;
+      background-image: url('../assets/grid-background.jpg');
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -101;
     }
   
-    .join-us-button {
-      z-index: 3;
-      margin-top: 15px;
-      padding-top: 7.5px;
-      padding-bottom: 7.5px;
-      background-color: rgba(0, 0, 0, 0.4);
-      width: 12%;
-      height: auto;
-      font-size: 20px;
-      border: 3px solid white;
-      transition: background-color ease 0.8s;
-
-      a {
-        text-decoration: none;
-        color: white;
+    .background-overlay {
+      height: 100%;
+      margin-top: -5rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
+      color: white;
+      font-family: 'Raleway', sans-serif;
+  
+      .content-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+  
+        h5 {
+          font-size: 36px;
+        }
+      
+        .join-us-button {
+          z-index: 3;
+          margin-top: 1rem;
+          padding: 0.5rem 2rem;
+          background-color: rgba(0, 0, 0, 0.4);
+          font-size: 1.25rem;
+          border: 3px solid white;
+          transition: background-color ease 0.8s;
+    
+          a {
+            text-decoration: none;
+            color: white;
+          }
+        }
       }
-    }
-
-    .join-us-button:hover,
-    .join-us-button:focus {
-      background-color: rgba(0, 0, 0, 0.7);
+      
+  
+      .join-us-button:hover,
+      .join-us-button:focus {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
     }
   }
 }
