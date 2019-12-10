@@ -1,14 +1,15 @@
 .transaction-history {
-  padding-top: 30px;
-  padding-bottom: 200px;
+  padding-top: 2rem;
+  padding-bottom: 5.5rem;
+  min-height: calc(100vh - 310px);
 
   h1 {
     width: 100%;
-    padding-bottom: 15px;
-    padding-top: 50px;
+    padding-bottom: 1rem;
+    padding-top: 3.125rem;
   }
   span {
     width: 100%;
-    padding-bottom: 10px;
+    padding-bottom: 0.625rem;
   }
 }

@@ -1,15 +1,16 @@
 #show-transaction-section {
-  padding-top: 80px;
+  padding-top: 5rem;
 
   .transaction-details {
-    font-size: 24px;
+    font-size: 2rem;
   }
 
   .transaction-container {
     width: 50%;
 
     h2 {
-      font-size: 20px;
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
     }
   }
 }

@@ -3,8 +3,13 @@
     <h1 class="transaction-details">Transaction Details:</h2>
     <div class="panel panel-default">
 
+      <% 
+        cryptocurrency = @transaction.cryptocurrency
+        crypto_name = cryptocurrency.name.humanize
+      %>
+
       <div class="panel-heading">
-        <h2 class="text-center"><%= @transaction.type_of_crypto.humanize %> has been added to your wallet.</h3>
+        <h2 class="text-center"><%= crypto_name %> has been added to your wallet.</h3>
       </div>
 
       <table class="table table-striped cart-items border">
@@ -12,14 +17,14 @@
           <tr>
             <th>Cryptocurrency</th>
             <th class="text-right">Quantity in Coins</th>
-            <th class="text-right"><%= cryptocurrency = @transaction.type_of_crypto.humanize %> Purchase Price</th>
+            <th class="text-right"><%= crypto_name %> Purchase Price</th>
             <th class="text-right">Price</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th><%= @transaction.type_of_crypto.humanize %></th>
-            <th class="text-center"><%= cryptocurrency === "Bitcoin" ? '₿' : 'Ξ' %> <%= @transaction.amount_of_coin %></th>
+            <th><%= @transaction.cryptocurrency.name.humanize %></th>
+            <th class="text-center"><%= cryptocurrency.get_char  %> <%= @transaction.amount_of_coin %></th>
             <th class="text-center">$<%= @transaction.crypto_price %></th>
             <th class="text-right">$<%= @transaction.order_total.round(2) %></th>
           </tr>

@@ -1,8 +1,8 @@
 class Transaction < ApplicationRecord
 
   belongs_to :user
+  belongs_to :cryptocurrency
 
-  enum type_of_crypto: [ :bitcoin, :ethereum ]
   enum purchase_type:  [ :cad, :crypto ]
 
   def user_email

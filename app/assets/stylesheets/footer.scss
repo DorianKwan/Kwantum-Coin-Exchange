@@ -1,57 +1,62 @@
 .footer {
-  position: absolute;
+  position: relative;
   color: #efefef;
   margin: 0;
   width: 100%;
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1rem;
+  padding: 2rem 4.375rem;
   background-color: #333;
   font-family: Helvetica, 'raleway', sans-serif;
   z-index: 2;
 
   .brand-value {
-    padding-top: 20px;
-    padding-left: 70px;
-    font-size: 14px;
+    padding-top: 1.25rem;
+    font-size: 0.875rem;
+    max-width: 31.333333%;
 
     .footer-brand-logo {
       border-bottom: 2px solid white;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
     }
 
     p {
-      width: 80%;
+      margin-bottom: 0.75rem;
+      width: 85%;
     }
 
     img {
-      width: 200px;
+      width: 12.5rem;
     }
   }
 
   .crypto-quote {
-    font-size: 16px;
-    margin-top: 65px;
-    margin-left: -95px;
+    font-size: 1rem;
+    margin-top: 4.0625rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .social-media {
-    margin-right: 27px;
-    margin-left: 3px;
+    margin-left: 4.5875rem;
 
     .social-links {
       width: 100%;
 
       li {
-        margin-left: 5px;
+        margin-left: 0.25rem;
 
         a {
-          margin: 30px 10px 15px 15px;
-          border-radius: 5px;
+          margin: 1.875rem 0.625rem 1rem 1rem;
+          border-radius: 0.3125rem;
           float: left;
-          width: 55px;
-          padding: 5px 0px;
+          width: 3.4375rem;
+          padding: 0.3125rem 0px;
           background: #fff;
           text-align: center;
           -moz-transition: background-color .2s ease;
@@ -61,7 +66,7 @@
 
           i {
             color: #333;
-            font-size: 24px;
+            font-size: 1.5rem;
           }
         }
       }
@@ -95,7 +100,7 @@
       }
 
       .email i {
-        margin-left: -2.5px;
+        margin-left: -0.15625rem;
       }
     }
 
@@ -105,19 +110,25 @@
       width: 80%;
       
       img {
-        width: 125px;
-        margin-top: -3px;
+        width: 7.8125rem;
+        margin-top: -0.1875rem;
       }
     }
 
     .copyright {
-      margin-right: 25px;
-      padding-top: 15px;
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      padding-top: 1rem;
+
+      .copyright-brand-logo {
+        height: 100%;
+      }
     }
 
     b {
-      margin-right: 25px;
-      font-size: 10px;
+      font-size: 0.625rem;
     }
   }
 }

@@ -1,7 +1,7 @@
 <section id="new-transaction">
   <div class="container form-box">
     <h1 class="transaction-title">Buy Cryptocurrency</h1>
-    <h2 class="crypto-offered">We currently offer the purchasing of Bitcoin and Ethereum.</h2>
+    <h2 class="crypto-offered">We currently offer Bitcoin, Ethereum, Litecoin & Ripple.</h2>
     
     <label class="instruction-label">How it works:</label>
     <div class="row">
@@ -22,14 +22,30 @@
           Select Crypto
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <button class="dropdown-item bitcoin-select" type="button">Bitcoin</button>
-          <button class="dropdown-item ethereum-select" type="button">Ethereum</button>
+          <% @cryptocurrencies.each do |crypto| %>
+            <button class="dropdown-item <%= crypto.name.downcase %>-select" type="button"><%= crypto.name.humanize %></button>
+          <% end %>
         </div>
       </div>
 
+      <!-- Hidden values to dynamically create jQuery listeners in purchase-form.js  -->
+      <div class="hidden crypto-data">
+        <% @cryptocurrencies.each do |crypto| 
+          symbol_lower = crypto.symbol.downcase %>
+          <div id="<%= symbol_lower %>">
+            <span class="<%= symbol_lower %>-price hidden"><%= crypto.raw_price %></span>
+            <span class="crypto-name"><%= crypto.name.humanize %></span>
+            <span class="crypto-character"><%= crypto.get_char %></span>
+          </div>
+        <% end %>
+      </div>
+
       <div class="col-6 crypto-prices">
-        <span class="btc-value hidden">Last BTC Price Per Unit: $<span class="btc-price"><%= @crypto_api_service.bitcoin_price %></span>.</span>
-        <span class="eth-value hidden">Last ETH Price Per Unit: $<span class="eth-price"><%= @crypto_api_service.ethereum_price %></span>.</span>
+        <% @cryptocurrencies.each do |crypto| 
+          symbol_lower = crypto.symbol.downcase
+        %>
+          <span class="<%= symbol_lower %>-value hidden">Last <%= crypto.symbol.upcase %> price per unit: $<%= crypto.price %></span>
+        <% end %>
       </div>
 
       <div class="purchase-type-toggle col-3">
@@ -48,13 +64,13 @@
           <input type="text" name="guest_email"/>
         <% end %>
         <div class="row">
-          <label class="amount-label col-8">Enter the desired amount of coin(s) in CAD:</label>
+          <label class="amount-label col-8">Enter amount of CAD for cryptocurrency:</label>
           <input class="cash-amount col-4" type="number" step="0.01"/>
           <input class="coin-amount col-4 hidden" type="number" name="amount-of-coin" step="0.00001" min="0.00016" max="10000"/>
         </div>
         <input class="order-total-hidden" type="hidden" name="order-total">
         <input class="purchase-type" type="hidden" name="purchase-type" value="cad">
-        <input class="type-of-crypto" type="hidden" name="type-of-crypto">
+        <input class="cryptocurrency-type" type="hidden" name="cryptocurrency-type">
         <div class="row total-row">
           <label class="cad-label col">CAD Total:</label>
           <span class="purchase-total col">$<span class="order-total">0.00</span></span>

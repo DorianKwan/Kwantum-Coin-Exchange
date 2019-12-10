@@ -2,46 +2,54 @@
   top: 0;
   position: fixed;
   background-color: transparent;
-  height: 80px;
+  height: 5rem;
   width: 100%;
   z-index: 100;
   transition: background-color 1s ease 0s;
+  padding: 0 4.375rem;
 
-  .home-link {
-    float: left;
-    margin-left: 70px;
-    margin-top: 20px;
-    
-    .brand-logo-link img {
-      width: 175px;
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    .home-link {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      
+      .brand-logo-link img {
+        width: 10.9375rem;
+      }
     }
-  }
+    
+    .navbar-links {
+      display: inline-flex;
+
+      a {
+        font-family: 'Raleway', sans-serif;
+        margin-left: 1.75rem;
+        color: white;
+        text-decoration: none;
+        transition: color 0.8s ease 0.2s, background-position 0.5s ease-out;
+        font-size: 1.125rem;
+        background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #ddd 50%);
+        background-position: -0% 0;
+        background-size: 200% auto;
+      }
   
-  .navbar-links {
-    float: right;
-    margin-right: 70px;
-    margin-top: 25px;
-    
-    a {
-      font-family: 'Raleway', sans-serif;
-      margin-left: 40px;
-      color: white;
-      text-decoration: none;
-      transition: color 0.8s ease 0.2s, background-position 0.5s ease-out;
-      font-size: 18px;
-      background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #ddd 50%);
-      background-position: -0% 0;
-      background-size: 200% auto;
+      a:hover {
+        background-position: -99.99% 0;
+      }
     }
-
-    a:hover {
-      background-position: -99.99% 0;
+  
+    .spinning-coin {
+      width: 2.5rem;
+      height: 2.5rem;
     }
-  }
-
-  .spinning-coin {
-    width: 40px;
-    height: 40px;
   }
 }
 

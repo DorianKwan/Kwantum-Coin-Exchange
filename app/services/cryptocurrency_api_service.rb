@@ -1,47 +1,34 @@
 class CryptocurrencyApiService
-
-  attr_accessor :bitcoin_price, :ethereum_price
-
   def initialize
-    self.bitcoin_price  = get_current_price('btc')
-    self.ethereum_price = get_current_price('eth')
   end
 
-  # This method takes in a cryptocurrency acronym ex/ 'btc', 'eth' or 'ltc' and returns the last sold price
-  def get_current_price(crypto)
-    url  = "https://api.quadrigacx.com/v2/ticker?book=#{crypto}_cad"
-    uri  = URI(url)
-    res  = Net::HTTP.get(uri)
-    json = JSON.parse(res)
-    
-    # Temporary band-aid error handling during Quadrigacx CEO fiasco
-    if json['error'].present?
-      static_btc_price = '4792.69'
-      static_eth_price = '159.17'
-      return crypto.eql?('btc') ? static_btc_price : static_eth_price
+  def get_cryptocurreny_data(dollar_type='CAD,USD')
+    cryptos = Cryptocurrency.all.pluck(:symbol).map { |symbol| symbol.upcase }.join(',') 
+    begin
+      url  = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=#{cryptos}&tsyms=#{dollar_type}";
+      url += "&api_key=#{ENV['CRYPTO_API_KEY']}"
+      uri  = URI(url)
+      res  = Net::HTTP.get(uri)
+      json = JSON.parse(res)
+    rescue => e  
+      puts e.message  
+      puts e.backtrace.inspect
+      return
     end
 
-    json['last']
+    cryptos.split(',').each { |crypto| self.update_cryptocurrency(crypto, json) }
   end
 
-  ###
-    # This method takes in a cryptocurrency acronym ex/ 'btc', 'eth' or 'ltc'
-    # It also has a optional param dollar_type to specify CAD ('cad') or USD ('usd)
-    # It will return the day high, day low and last transaction price
-  ###
-  def get_crypto_price_data(crypto, dollar_type='cad')
-    url  = "https://api.quadrigacx.com/v2/ticker?book=#{crypto}_cad"
-    uri  = URI(url)
-    res  = Net::HTTP.get(uri)
-    json = JSON.parse(res)
-
-    # Temporary band-aid error handling during Quadrigacx CEO fiasco
-    if json['error'].present?
-      static_btc_prices = ['4792.69', '4836.04', '4754.17', '4786.95', 249.23]
-      static_eth_prices = ['159.17', '162.87', '157.53', '159.95', 2585.23]
-      return crypto.eql?('btc') ? static_btc_prices : static_eth_prices
+  def update_cryptocurrency(symbol, api_data)
+    begin
+      crypto = Cryptocurrency.find_by(symbol: symbol)
+      crypto.raw_data = api_data['RAW'][symbol]
+      crypto.display_data = api_data['DISPLAY'][symbol]
+      crypto.save!
+    rescue => e
+      puts "Raised exception updating #{symbol}"
+      puts e.message  
+      puts e.backtrace.inspect
     end
-
-    [json['last'], json['high'], json['low'], json['vwap'], json['volume'].to_f.round(2)]
   end
 end

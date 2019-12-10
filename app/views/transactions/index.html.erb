@@ -15,10 +15,12 @@
           </tr>
         </thead>
       <% if user_signed_in? %>
-        <% @transactions.each do |transaction| %>
+        <% @transactions.each do |transaction| 
+            cryptocurrency = transaction.cryptocurrency
+            crypto_name = cryptocurrency.name.humanize %>
               <tr>
-                <th><%= transaction.type_of_crypto.humanize %></th>
-                <th class="text-center"><%= transaction.type_of_crypto.humanize.eql?('Bitcoin') ? '₿' : 'Ξ' %><%= transaction.amount_of_coin %></th>
+                <th><%= crypto_name %></th>
+                <th class="text-center"><%= cryptocurrency.get_char %> <%= transaction.amount_of_coin %></th>
                 <th class="text-center">$<%= '%.2f' % transaction.crypto_price %></th>
                 <th class="text-right">$<%= '%.2f' % transaction.order_total.round(2) %></th>
               </tr>
