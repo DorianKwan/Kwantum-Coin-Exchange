@@ -1,7 +1,7 @@
 <header id="navbar" class="solid">
   <nav>
-    <p class="home-link"><%= link_to image_tag('/assets/brand-logo-black.png'), root_path, :class => 'navbar-link brand-logo-link' %><img class="spinning-coin" src="/assets/spinning-coin.gif"></p>
-    <p class="navbar-links">
+    <div class="home-link"><%= link_to image_tag('/assets/brand-logo-black.png'), root_path, :class => 'navbar-link brand-logo-link' %><img class="spinning-coin" src="/assets/spinning-coin.gif"></div>
+    <div class="navbar-links">
       <% if user_signed_in? %>
         <%= link_to 'Buy Crypto', transactions_new_path, :class => 'navbar-link' %>
         <%= link_to 'Transaction History', transactions_index_path, :class => 'navbar-link' %>
@@ -11,6 +11,6 @@
         <%= link_to 'Sign up', new_user_registration_path, :class => 'navbar-link'  %>
         <%= link_to 'Login', new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
-    </p>
-  <nav>
+    </div>
+  </nav>
 </header>
