@@ -1,7 +1,7 @@
 <section id="new-transaction">
   <div class="container form-box">
     <h1 class="transaction-title">Buy Cryptocurrency</h1>
-    <h2 class="crypto-offered">We currently offer Bitcoin, Ethereum, Litecoin & Ripple.</h2>
+    <h2 class="crypto-offered">We currently offer <%= @cryptocurrencies[0..-2].pluck(:name).join(', ') + " & #{@cryptocurrencies.last.name}" %></h2>
     
     <label class="instruction-label">How it works:</label>
     <div class="row">
@@ -23,7 +23,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% @cryptocurrencies.each do |crypto| %>
-            <button class="dropdown-item <%= crypto.name.downcase %>-select" type="button"><%= crypto.name.humanize %></button>
+            <button class="dropdown-item <%= crypto.name.downcase.gsub(" ", "-") %>-select" type="button"><%= crypto.name.humanize %></button>
           <% end %>
         </div>
       </div>

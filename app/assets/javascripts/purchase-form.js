@@ -35,6 +35,7 @@ document.addEventListener("turbolinks:load", function () {
     }
 
     function addClickListener(selector, cryptoName, cryptoValue, cryptoSymbol) {
+      selector = selector.replace(/\s/g, "-");
       $(selector).on('click', function () {
         selectValue.innerHTML = cryptoName;
         showValue(cryptoValue);

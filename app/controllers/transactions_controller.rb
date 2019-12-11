@@ -44,7 +44,7 @@ class TransactionsController < ApplicationController
     end
 
     @buy_page = true
-    @cryptocurrencies = Cryptocurrency.where(symbol: ['BTC', 'ETH', 'LTC', 'XRP']).order(:symbol)
+    @cryptocurrencies = Cryptocurrency.all.order(:symbol)
   end
 
   def show
