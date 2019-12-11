@@ -25,11 +25,13 @@ gem 'bootstrap'
 
 gem 'devise', '~> 4.7.1'
 
-gem 'rails_admin', '~> 2.0'
-
 gem 'figaro'
 
-gem 'whenever'
+# Used for admin panel (Admin CRUD for all models)
+gem 'rails_admin', '~> 2.0'
+
+# Used for cron task scheduling
+gem 'arask'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
